@@ -22,4 +22,14 @@ body{
         border: 2px solid #ddd;
         height: 175px;
     }
+
+    .hl-innertext {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        padding: 8px 10px;
+    }
 }
