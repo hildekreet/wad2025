@@ -55,4 +55,10 @@ body{
         border: none;
     }
 
+    .btn {
+    opacity: 1;
+    }
 
+    input:hover, .btn:hover{
+    opacity: 0.7;
+    }
