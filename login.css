@@ -12,11 +12,14 @@ body{
     overflow: hidden;
     background-color: #333;
     display: flex;
+    width: 100%;
+    position: fixed;
+    justify-content: space-between;
 }
 
 .navbar a{
     color: #f2f2f2;
-    text-align: center;
+    text-align: left;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -35,7 +38,7 @@ body{
 
 .container{
     margin-top: 80px;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 40px 60px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     width: 350px;
@@ -44,8 +47,50 @@ body{
     background-color: #ddd;
 }
 
+.row{
+    font-size: 20px;
+    text-align: center;
+}
+
 .row::after{
     content: "";
     display: table;
     clear: both;
+}
+
+input, .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 3px 0;
+    opacity: 0.80;
+    display: block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none; /*votab anchoritelt jooned alt ara*/
+}
+
+input:hover, .btn:hover{
+    opacity: 1;
+}
+
+#loginForm{
+    text-align: center;
+}
+
+.container > p {
+    color: #555;
+}
+
+.row p + p {
+    font-style: italic;
+}
+
+.row p ~ p {
+    margin-bottom: 10px;
+}
+
+.container input {
+    background-color: #f2f2f2;
 }
