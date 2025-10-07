@@ -20,7 +20,7 @@ body{
         left: 50%;
         transform: translate(-50%);
         border: 2px solid #ddd;
-        height: 175px;
+        width: 175px;
     }
 
     .hl-innertext {
