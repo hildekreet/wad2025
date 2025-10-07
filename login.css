@@ -15,7 +15,7 @@ body{
 }
 
 .navbar a{
-    color: #333;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -30,7 +30,7 @@ body{
 
 .navbar a.active{
     background-color: aquamarine;
-    color: whitesmoke;
+    color: black;
 }
 
 .container{
@@ -41,7 +41,7 @@ body{
     width: 350px;
     flex-direction: column;
     align-items: center;
-    background-color: #f2f2f2;
+    background-color: #ddd;
 }
 
 .row::after{
