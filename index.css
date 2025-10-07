@@ -1,25 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
-    .navbar{
-        overflow: hidden;
-        background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    /*display: flex;*/
+    justify-content: center;
+}
+
+#mainContainer {
+    background-color: #ffffff;
+}
+
+.navbar{
+    overflow: hidden;
+    background-color: #333;
+}
+.navbar a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.navbar a:hover{
+    background-color: #ddd;
+    color: black;
+}
+.navbar a.active{
+    background-color: aquamarine;
+    color: whitesmoke;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    background-color: #f2f2f2;
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    background-color: #dcdcdc;
+    width: 300px;
+    margin: 15px 15px 35px;
+    border-radius: 25px;
+}
+
+.posts {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.post {
+    background-color: #dcdcdc;
+    border-radius: 25px;
+    margin: 0px 10px 20px;
+}
+
+.post p {
+    margin: 20px 20px 0px;
+}
+
+.post > .post-footer {
+    margin-top: 5px;
+}
+
+.post + .post {
+    border-top: 2px solid #ccc;
+}
+
+.post ~ .footer {
+    background-color: c0c0c0;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 20px;
+}
+
+.date {
+    margin: 20px;
+    font-size: 0.9em;
+}
+
+.like-btn {
+    margin: 20px;
+}
+
+.post-body {
+    margin-top: 10px;
+}
+
+.post-img {
+    width: 50%;
+    margin: 0px 20px;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.like-btn:hover {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #333;
+    padding: 14px 16px;
+    font-size: 17px;
+    color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
     }
 
-    .navbar a{
-        float: left;
-        color: #f2f2f2;
+    .content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .header {
+        flex-direction: column;
         text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
     }
 
-    .navbar a:hover{
-        background-color: #ddd;
-        color: black;
-    }
-
-    .navbar a.active{
-        background-color: aquamarine;
-        color: whitesmoke;
+    .posts {
+        flex-direction: column;
     }
 }
