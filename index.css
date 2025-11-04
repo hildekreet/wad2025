@@ -135,7 +135,6 @@ body{
 .post-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .avatar {
@@ -144,6 +143,7 @@ body{
     border-radius: 50%;
     background-color: white;
     margin: 20px;
+    object-fit: cover;
 }
 
 .date {
@@ -157,6 +157,12 @@ body{
 
 .post-body {
     margin-top: 10px;
+}
+
+.post p,
+.post img.avatar {
+    display: block;
+    margin: 5px 0;
 }
 
 .post-image {
@@ -193,6 +199,12 @@ body{
 }
 
 @media (max-width: 600px) {
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+
     .container {
         width: 95%;
     }

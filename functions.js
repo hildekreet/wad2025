@@ -28,6 +28,9 @@ fetch(endpoint)
             const dateTime = `${formattedDate} ${formattedTime}`;
 
             postDiv.innerHTML = `
+                <div class="post-header">
+                    <img class = "avatar" src="${post.avatar || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png'}" alt="User avatar">
+                <div>
             <p><strong>Author:</strong> ${post.author}</p>
             <p><strong>Date:</strong> ${dateTime}</p>
             ${imageHTML}
