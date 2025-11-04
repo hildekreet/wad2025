@@ -9,8 +9,14 @@ fetch(endpoint)
             const postDiv = document.createElement("div");
             postDiv.classList.add("post");
 
+            let imageHTML = "";
+            if (post.image_base64) {
+                imageHTML = 'img src="${post.image_base64}" alt="Post image" class="post-image"';
+            }
+
             postDiv.innerHTML = `
             <h2>${post.title}</h2>
+            ${imageHTML}
             <p><strong>Author:</strong> ${post.author}</p>
             <p>${post.content}</p>
             `;
