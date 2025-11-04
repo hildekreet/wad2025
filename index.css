@@ -34,18 +34,17 @@ body{
 }
 
 .navbar .dropbtn {
-    border: none;
-    padding: 0;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    background: none;
+    margin: 4px;
+    background-color: white;
     object-fit: cover;
 }
 
 .navbar .dropbtn:hover{
-    filter: brightness(85%);
+    filter: brightness(80%);
 }
 
 .navbar .dropdown {
@@ -72,6 +71,7 @@ body{
     text-decoration: none;
     display: block;
     width: 100%;
+    text-align: left;
     box-sizing: border-box;
 }
 
