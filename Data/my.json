@@ -2,73 +2,63 @@
     "Posts": [
   {
     "id": 1,
-    "title": "My day",
     "author": "Karl Saar",
     "created_at": "2025-11-02T10:45:23Z",
-    "content": "How my day went and what i did during it"
+    "content": "Today, i saw a balloon!"
   },
   {
     "id": 2,
-    "title": "Running diary",
     "author": "Kristofer Rauk",
     "created_at": "2025-10-28T08:12:10Z",
-    "content": "My journey in running is going, trying to lower my marathon time to under 4 hours"
+    "content": "My journey in running is going great, trying to lower my marathon time to under 4 hours by the end of the year."
   },
   {
     "id": 3,
-    "title": "I hate university",
     "author": "Sebastian Mais",
     "created_at": "2025-09-14T15:30:00Z",
     "content": "University is really hard when you are lazy, and i am really lazy"
   },
   {
     "id": 4,
-    "title": "Gaming as a hobby",
     "author": "Henri Maandi",
     "created_at": "2025-11-01T11:00:00Z",
     "content": "I love gaming, it is my favourite thing to do, i have played almost all the games in the world"
   },
   {
     "id": 5,
-    "title": "Daily journey of my cat",
     "author": "Lumi Pukk",
     "created_at": "2025-10-10T06:20:00Z",
-    "content": "Recently I acquired a cat, ive written down everything she does in a day"
+    "content": "Recently I acquired a cat, ive written down everything she does in a day: sleep...thats all "
   },
   {
     "id": 6,
-    "title": "Working as a pasta chef",
     "author": "Kaur Oskar",
     "created_at": "2025-08-21T14:45:10Z",
     "content": "Went out and got a job working as a pasta chef, it is really difficult getting up that early but i manage."
   },
   {
     "id": 7,
-    "title": "How to dye your hair",
     "author": "Kadi Palu",
     "created_at": "2025-09-05T09:00:00Z",
     "content": "Last night i dyed my hair black, turns out it is not as easy as you think, i reccomend going to a professional hair dresser"
   },
   {
     "id": 8,
-    "title": "Top 10 anime",
     "author": "Marco Kuusk",
     "created_at": "2025-10-30T12:25:45Z",
-    "content": "Anime is not something to view lightly, it is a way of living..at least for me"
+    "content": "Anime is not something to view lightly, it is a way of living...at least for me"
   },
   {
     "id": 9,
-    "title": "My mom took my playstation",
     "author": "Angelina Jolie",
     "created_at": "2025-11-03T17:05:00Z",
     "content": "I was playing at 2 AM and my mom caught me so she took my playstation"
   },
   {
     "id": 10,
-    "title": "Travel hacks",
     "author": "Olivia Neidre",
     "created_at": "2025-07-19T07:15:00Z",
-    "content": "Never go out at night alone and when someone offers you flowers, decline, respectfully"
+    "content": "Never going out again, soooo hungover"
   }
 ]
 
