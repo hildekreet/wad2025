@@ -15,6 +15,8 @@ body{
 .navbar{
     overflow: visible;
     background-color: #333;
+    margin: 0px 0px 20px;
+
 }
 .navbar a{
     float: left;
@@ -112,8 +114,10 @@ body{
 
 .post {
     background-color: #dcdcdc;
+    border-top: 2px solid #ccc;
     border-radius: 25px;
     margin: 0px 10px 20px;
+    padding: 0px 0px 25px;
 }
 
 .post p {
@@ -124,9 +128,9 @@ body{
     margin-top: 5px;
 }
 
-.post + .post {
+/*.post + .post {
     border-top: 2px solid #ccc;
-}
+}*/
 
 .post ~ .footer {
     background-color: c0c0c0;
@@ -172,12 +176,10 @@ body{
     margin: 10px 0;
 }
 
-/*
-.post-img {
-    width: 50%;
+.post-image {
+    width: 20%;
     margin: 0px 20px;
 }
-*/
 
 .like-btn {
     background: none;
@@ -226,5 +228,10 @@ body{
 
     .posts {
         flex-direction: column;
+    }
+
+    .post-image {
+    width: 90%;
+    margin: 0px 20px;
     }
 }
