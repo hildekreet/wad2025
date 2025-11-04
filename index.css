@@ -214,4 +214,9 @@ body{
     .posts {
         flex-direction: column;
     }
+
+    .post-image {
+    width: 90%;
+    margin: 0px 20px;
+    }
 }
