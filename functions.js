@@ -11,13 +11,26 @@ fetch(endpoint)
 
             let imageHTML = "";
             if (post.image_base64) {
-                imageHTML = 'img src="${post.image_base64}" alt="Post image" class="post-image"';
+                imageHTML = `<img src="${post.image_base64}" alt="Post image" class="post-image">`;
             }
 
+            const date = new Date(post.created_at);
+            const formattedDate = date.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+            });
+            const formattedTime = date.toLocaleTimeString("en-GB", {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+            const dateTime = `${formattedDate} ${formattedTime}`;
+
             postDiv.innerHTML = `
-            <h2>${post.title}</h2>
-            ${imageHTML}
             <p><strong>Author:</strong> ${post.author}</p>
+            <p><strong>Date:</strong> ${dateTime}</p>
+            ${imageHTML}
             <p>${post.content}</p>
             `;
 
@@ -31,7 +44,6 @@ function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
