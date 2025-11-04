@@ -85,7 +85,7 @@ input:hover, .btn:hover{
 }
 
 .row p + p {
-    font-style: italic;
+    font-style: bold;
 }
 
 .row p ~ p {
