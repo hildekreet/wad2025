@@ -85,6 +85,7 @@ body{
     min-height: 100vh;
 }
 
+/*
 .content {
     background-color: #f2f2f2;
     display: flex;
@@ -98,6 +99,7 @@ body{
     margin: 15px 15px 35px;
     border-radius: 25px;
 }
+*/
 
 .posts {
     display: flex;
@@ -157,10 +159,19 @@ body{
     margin-top: 10px;
 }
 
+.post-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/*
 .post-img {
     width: 50%;
     margin: 0px 20px;
 }
+*/
 
 .like-btn {
     background: none;
@@ -186,6 +197,7 @@ body{
         width: 95%;
     }
 
+    /*
     .content {
         flex-direction: column;
     }
@@ -193,6 +205,7 @@ body{
     .sidebar {
         display: none;
     }
+    */
 
     .header {
         flex-direction: column;
