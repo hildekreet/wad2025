@@ -81,8 +81,8 @@ body, html, #app {
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import AppHeader from './AppHeader.vue'
-import AppFooter from './AppFooter.vue'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'MainView',
