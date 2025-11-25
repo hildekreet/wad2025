@@ -12,11 +12,14 @@
           class="post"
         >
           <div class="post-header">
-            <img 
+            <div class="header-left">
+              <img 
               class="avatar" 
               :src="post.avatar || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png'" 
               alt="Avatar"
-            >
+              >
+              <div class="post-author">{{ post.author }}</div>
+            </div>
             <span class="date">{{ formatDate(post.created_at) }}</span>
           </div>
           <div class="post-body">
@@ -112,6 +115,16 @@ export default {
   height: 40px;
   border-radius: 50%;
   margin-left: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.post-author {
+  margin-left: 20px;
+  font-weight: bold;
 }
 
 .date {
