@@ -33,17 +33,17 @@ export default {
         const pwd = this.password;
         const errors = [];
         if(pwd.length < 8 || pwd.length >= 15)
-            errors.push("Password must be 8-14 characters");
+            errors.push("Must be 8-14 characters");
         if (!/[A-Z]/.test(pwd))
-            errors.push("Password must include at least one uppercase letter");
+            errors.push("Must include at least one uppercase letter");
         if ((pwd.match(/[a-z]/g) || []).length < 2)
-            errors.push("Password must include at least two lowercase letters");
+            errors.push("Must include at least two lowercase letters");
         if (!/[0-9]/.test(pwd))
-            errors.push("Password must include at least one number");
+            errors.push("Must include at least one number");
         if(!/^[A-Z]/.test(pwd))
-            errors.push("Password must start with an uppercase letter")
+            errors.push("Must start with an uppercase letter")
         if (!/_/.test(pwd))
-            errors.push('Password must include the "_" character');
+            errors.push('Must include the "_" character');
 
         this.passwordError = errors.length
         ? "The password is not valid — " + errors.join(", ")

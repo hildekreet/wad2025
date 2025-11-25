@@ -1,7 +1,7 @@
 <template>
   <header class="navbar">
     <router-link to="/" class="nav-link">Home</router-link>
-    <router-link to="/signup" class="nav-link">Signup</router-link>
+    <router-link to="/login" class="nav-link">Signup</router-link>
   </header>
 </template>
 
