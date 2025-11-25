@@ -111,7 +111,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 100px; /* leave space for header */
+  margin-top: 100px; /*space for header*/
   display: flex;
   flex-direction: column;
   align-items: center;
