@@ -7,19 +7,11 @@ export default createStore({
   },
   mutations: {
     setPosts(state, posts) {
-      state.posts = posts.map(post => ({ ...post, likes: 0 }))
+      state.posts = posts.map(post => ({ ...post}))
     },
-    likePost(state, postId) {
-      const post = state.posts.find(p => p.id === postId)
-      if(post) post.likes++
-    },
-    resetLikes(state) {
-      state.posts.forEach(p => p.likes = 0)
-    }
   },
   actions: {
     fetchPosts({ commit }) {
-      // Using the imported JSON
       commit('setPosts', postsData.Posts)
     }
   },
