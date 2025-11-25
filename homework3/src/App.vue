@@ -67,11 +67,12 @@ body, html, #app {
             >
           </div>
           <div class="post-footer">
-            <button class="like-btn">
-              👍 {{ post.likes || 0 }}
+            <button class="like-btn" @click="likePost(post.id)">
+              👍 {{ post.likes}}
             </button>
           </div>
         </div>
+        <button class="reset-btn" @click="resetClicked">Reset all likes</button>
       </main>
     </div>
 
@@ -97,7 +98,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchPosts']),
+    ...mapActions(['fetchPosts', 'likePost', 'resetClicked']),
+
+    like(id) {
+        this.likePost(id)
+    },
+
     formatDate(dateString) {
       const options = { year: 'numeric', month: 'short', day: 'numeric' }
       return new Date(dateString).toLocaleDateString(undefined, options)
@@ -181,5 +187,19 @@ export default {
 .like-btn:hover {
   background-color: #ccc;
   border-radius: 5px;
+}
+
+.reset-btn {
+  background-color: #dcdcdc;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.reset-btn:hover {
+  background-color: #ccc;
 }
 </style>
