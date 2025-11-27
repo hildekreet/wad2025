@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <div class="page-container">
-        <h2>Login</h2>
+        <h2>Sign up</h2>
 
         <form id="signupForm" @submit.prevent="handleSignup">
             <input type="text" v-model="username" placeholder="Username" required />
@@ -111,7 +111,6 @@ export default {
   cursor: pointer;
 }
 
-/* Error text */
 .error-msg {
   margin-top: 10px;
   color: red;

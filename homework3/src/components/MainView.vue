@@ -40,22 +40,17 @@
         <button class="reset-btn" @click="resetClicked">Reset all likes</button>
       </main>
     </div>
-
-    <!-- Footer Component -->
-    <AppFooter />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import AppHeader from './AppHeader.vue'
-import AppFooter from './AppFooter.vue'
 
 export default {
   name: 'MainView',
   components: {
     AppHeader,
-    AppFooter
   },
   computed: {
     ...mapGetters(['getPosts']),
@@ -83,7 +78,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 100px; /* leave space for header */
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,13 +139,6 @@ export default {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-}
-
-.post-footer {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 20px;
-  margin-bottom: 10px;
 }
 
 .like-btn {
