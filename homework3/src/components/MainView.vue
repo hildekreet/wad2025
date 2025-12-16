@@ -127,12 +127,12 @@ export default {
   margin-bottom: 20px;
   padding: 10px 0;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
 .delete-all-btn {
   background-color: #ff6b6b;
-  color: white;
+  color: black;
 }
 
 .post:hover {

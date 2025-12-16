@@ -1,13 +1,20 @@
 <template>
   <header class="navbar">
-    <router-link to="/" class="nav-link">Home</router-link>
-    <template v-if="!isLogin">
+    <div class="nav-left">
+      <router-link to="/" class="nav-link">Home</router-link>
+      <router-link to="/contact" class="nav-link">Contact</router-link>
+    </div>
+
+    <div class="nav-right">
+      <template v-if="!isLogin">
       <router-link to="/login" class="nav-link">Login / Signup</router-link>
     </template>
     <template v-else>
       <router-link to="/add-post" class="nav-link">Add Post</router-link>
       <button class="nav-link logout-btn" @click="logout">Logout</button>
     </template>
+    </div>
+    
   </header>
 </template>
 
@@ -43,16 +50,33 @@
   padding: 0 16px;
   box-sizing: border-box;
   height: 50px;
-  align-items: left;
+  align-items: center;
+  z-index: 1000;
+}
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .nav-link {
   color: #f2f2f2;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
 .nav-link:hover {
   background-color: #ddd;
   color: black;
 }
+
+.logout-btn {
+  color: #f2f2f2;
+}
+
 </style>

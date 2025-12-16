@@ -24,7 +24,10 @@ const createTables = async () => {
         CREATE TABLE IF NOT EXISTS posts (
             id SERIAL PRIMARY KEY,
             content TEXT NOT NULL,
-            author INT REFERENCES users(id),
+            author VARCHAR(255) DEFAULT 'Anonymous',
+            avatar TEXT,
+            image_base64 TEXT,
+            likes INT DEFAULT 0,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
         `)

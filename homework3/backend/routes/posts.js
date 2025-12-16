@@ -28,6 +28,29 @@ router.get('/', auth, async (req, res) => {
     }
 })
 
+router.post('/', auth, async (req, res) => {
+    const { content } = req.body
+    try {
+        const newPost = await pool.query('INSERT INTO posts (content, author) VALUES ($1, $2) RETURNING *',
+            [content, req.user.id]
+        )
+        res.json(newPost.rows[0])
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Server error')
+    }
+})
+
+router.delete('/', auth, async (req, res) => {
+    try {
+        await pool.query('DELETE FROM posts')
+        res.json({ message: 'All posts deleted' })
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Server error')
+    }
+})
+
 router.get('/:id', auth, async (req, res) => {
     const { id } = req.params
     try {
@@ -36,19 +59,6 @@ router.get('/:id', auth, async (req, res) => {
             return res.status(404).json({ message: 'Post not found' })
         }
         res.json(post.rows[0])
-    } catch (err) {
-        console.error(err)
-        res.status(500).send('Server error')
-    }
-})
-
-router.post('/', auth, async (req, res) => {
-    const { content } = req.body
-    try {
-        const newPost = await pool.query('INSERT INTO posts (content, author) VALUES ($1, $2) RETURNING *',
-            [content, req.user.id]
-        )
-        res.json(newPost.rows[0])
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
@@ -70,21 +80,28 @@ router.put('/:id', auth, async (req, res) => {
     }
 })
 
-router.delete('/:id', auth, async (req, res) => {
+router.put('/:id/like', auth, async (req, res) => {
     const { id } = req.params
     try {
-        await pool.query('DELETE FROM posts WHERE id=$1', [id])
-        res.json({ message: 'Post deleted' })
+        const updated = await pool.query(
+            'UPDATE posts SET likes = COALESCE(likes, 0) + 1 WHERE id=$1 RETURNING *',
+            [id]
+        )
+        if (updated.rows.length === 0) {
+            return res.status(404).json({ message: 'Post not found' })
+        }
+        res.json(updated.rows[0])
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
     }
 })
 
-router.delete('/', auth, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
+    const { id } = req.params
     try {
-        await pool.query('DELETE FROM posts')
-        res.json({ message: 'All posts deleted' })
+        await pool.query('DELETE FROM posts WHERE id=$1', [id])
+        res.json({ message: 'Post deleted' })
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
