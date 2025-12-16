@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import postsData from '../Data/my.json'
+import api from '../api'
 
 export default createStore({
   state: {
@@ -23,10 +23,19 @@ export default createStore({
         post.likes = 0
       });
     },
+
+    clearPosts(state) {
+      state.posts = [];
+    }
   },
   actions: {
-    fetchPosts({ commit }) {
-      commit('setPosts', postsData.Posts)
+    async fetchPosts({ commit }) {
+      try{
+        const res = await api.get('/posts')
+        commit('setPosts', res.data)
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      }
     },
 
     likePost({commit}, postId) {
@@ -36,6 +45,16 @@ export default createStore({
     resetClicked({commit}) {
       commit('resetLikes')
     },
+
+    async deleteAllPosts({ commit }) {
+      try {
+        await api.delete('/posts')
+        commit('clearPosts')
+      } catch (error) {
+        console.error('Error deleting all posts:', error)
+        throw error
+      }
+    }
   },
   getters: {
     getPosts: state => state.posts

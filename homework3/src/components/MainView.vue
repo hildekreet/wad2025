@@ -1,15 +1,13 @@
 <template>
   <div>
-    <!-- Header Component -->
-    <AppHeader />
-
-    <!-- Main container -->
+    <AppHeader :isLogin="isLogin" @update:isLogin="isLogin= $event" />
     <div class="container" id="mainContainer">
       <main class="posts">
         <div 
           v-for="post in posts" 
           :key="post.id" 
           class="post"
+          @click="viewPost(post.id)"
         >
           <div class="post-header">
             <div class="header-left">
@@ -32,18 +30,19 @@
             >
           </div>
           <div class="post-footer">
-            <button class="like-btn" @click="likePost(post.id)">
+            <button class="like-btn" @click.stop="like(post.id)">
               👍 {{ post.likes}}
             </button>
           </div>
         </div>
         <button class="reset-btn" @click="resetClicked">Reset all likes</button>
+        <button v-if="isLogin" class="reset-btn delete-all-btn" @click="handleDeleteAll">Delete All Posts</button>
       </main>
     </div>
-
-    <!-- Footer Component -->
     <AppFooter />
   </div>
+
+
 </template>
 
 <script>
@@ -57,6 +56,13 @@ export default {
     AppHeader,
     AppFooter
   },
+
+  data() {
+    return {
+      isLogin: !!localStorage.getItem('token')
+    }
+  },
+
   computed: {
     ...mapGetters(['getPosts']),
     posts() {
@@ -64,7 +70,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchPosts', 'likePost', 'resetClicked']),
+    ...mapActions(['fetchPosts', 'likePost', 'resetClicked', 'deleteAllPosts']),
 
     like(id) {
         this.likePost(id)
@@ -73,10 +79,28 @@ export default {
     formatDate(dateString) {
       const options = { year: 'numeric', month: 'short', day: 'numeric' }
       return new Date(dateString).toLocaleDateString(undefined, options)
+    },
+
+    viewPost(postId) {
+      this.$router.push(`/post/${postId}`)
+    },
+
+    async handleDeleteAll() {
+      if (confirm('Are you sure you want to delete all posts? This action cannot be undone.')) {
+        try {
+          await this.deleteAllPosts()
+          alert('All posts deleted successfully')
+        } catch (err) {
+          console.error(err)
+          alert('Failed to delete posts')
+        }
+      }
     }
   },
   mounted() {
-    this.fetchPosts()
+    if (this.isLogin) {
+      this.fetchPosts()
+    }
   }
 }
 </script>
@@ -102,6 +126,21 @@ export default {
   border-radius: 25px;
   margin-bottom: 20px;
   padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-all-btn {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.post:hover {
+  background-color: #d0d0d0;
+}
+
+.delete-all-btn:hover { 
+  background-color: #ff5252;
 }
 
 .post-header {

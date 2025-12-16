@@ -1,20 +1,12 @@
 <template>
-  <AppHeader/>
-  <main id="content">
-      <router-view/>
-    </main>
-  <AppFooter/>
+  <div id="app">
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
-import AppFooter from './components/AppFooter.vue';
 export default {
   name: 'App',
-  components: {
-    AppHeader,
-    AppFooter
-  }
 }
 </script>
 
@@ -29,7 +21,7 @@ body, html, #app {
   margin: 0;
   padding: 0;
 }
-#content {
-  margin-top: 80px;
+* {
+  box-sizing: border-box;
 }
 </style>
