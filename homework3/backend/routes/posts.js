@@ -81,7 +81,6 @@ router.get('/:id', auth, async (req, res) => {
         res.status(500).send('Server error')
     }
 })
-
 router.put('/:id', auth, async (req, res) => {
     const { id } = req.params
     const { content } = req.body
