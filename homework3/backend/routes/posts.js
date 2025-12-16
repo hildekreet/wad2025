@@ -20,8 +20,13 @@ const auth = (req, res, next) => {
 
 router.get('/', auth, async (req, res) => {
     try {
-        const posts = await pool.query('SELECT * FROM posts ORDER BY created_at DESC')
-        res.json(posts.rows)
+        const posts = await pool.query('SELECT posts.*, users.email as author_email FROM posts LEFT JOIN users ON posts.author = users.id ORDER BY posts.created_at DESC')
+        const postsWithAuthor = posts.rows.map(post => ({
+            ...post,
+            author: post.author_email || 'Anonymous'
+        }))
+        
+        res.json(postsWithAuthor)
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
@@ -34,7 +39,14 @@ router.post('/', auth, async (req, res) => {
         const newPost = await pool.query('INSERT INTO posts (content, author) VALUES ($1, $2) RETURNING *',
             [content, req.user.id]
         )
-        res.json(newPost.rows[0])
+        const user = await pool.query('SELECT email FROM users WHERE id=$1', [req.user.id])
+        
+        const postWithAuthor = {
+            ...newPost.rows[0],
+            author: user.rows[0].email
+        }
+        
+        res.json(postWithAuthor)
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
@@ -54,11 +66,16 @@ router.delete('/', auth, async (req, res) => {
 router.get('/:id', auth, async (req, res) => {
     const { id } = req.params
     try {
-        const post = await pool.query('SELECT * FROM posts WHERE id=$1', [id])
+        const post = await pool.query('SELECT posts.*, users.email as author_email FROM posts LEFT JOIN users ON posts.author = users.id WHERE posts.id = $1', [id])
         if (post.rows.length === 0) {
             return res.status(404).json({ message: 'Post not found' })
         }
-        res.json(post.rows[0])
+        const postWithAuthor = {
+            ...post.rows[0],
+            author: post.rows[0].author_email || 'Anonymous'
+        }
+        
+        res.json(postWithAuthor)
     } catch (err) {
         console.error(err)
         res.status(500).send('Server error')
